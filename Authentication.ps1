@@ -1,4 +1,4 @@
-$personalAccessToken = "67fcc95fbdbaec8f480651b7d315d5785b480a63";
+$personalAccessToken = "793ee08f331a429749a755b780613d12a04c258e";
 
 function GetBasicAuthenticationHeader(){
     $credPair = "username:$personalAccessToken"
