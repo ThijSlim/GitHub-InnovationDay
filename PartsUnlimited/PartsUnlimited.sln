@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PartsUnlimited.UnitTests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PartsUnlimited.Models", "src\PartsUnlimited.Models\PartsUnlimited.Models.csproj", "{C6E18287-B905-4685-9653-515ED914990B}"
 EndProject
-Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "PartsUnlimitedEnv", "env\PartsUnlimitedEnv.deployproj", "{BD52204A-7129-4FF2-B66C-34A5E6F70CDD}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PartsUnlimited.WebJobs.ProcessOrder", "src\PartsUnlimited.WebJobs.ProcessOrder\PartsUnlimited.WebJobs.ProcessOrder.csproj", "{3BF0E46E-D3D0-4C4D-A24A-A606F7F6EBD4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PartsUnlimited.WebJobs.UpdateProductInventory", "src\PartsUnlimited.WebJobs.UpdateProductInventory\PartsUnlimited.WebJobs.UpdateProductInventory.csproj", "{55500A39-9A61-4C2A-86C9-67EE9A149034}"
