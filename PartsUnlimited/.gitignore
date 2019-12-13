@@ -44,3 +44,4 @@ env/[Oo]bj/
 /testresults.xml
 dist/
 testresults.xml
+.idea/
