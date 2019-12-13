@@ -18,8 +18,8 @@ Push-Location $tempDirectory
 git clone $gitUrl
 Pop-Location
 
-Remove-Item "$tempDirectory\$repo\.github" -Force -Recurse
-Remove-Item "$tempDirectory\$repo\PartsUnlimited" -Recurse -Force
+Remove-Item "$tempDirectory\$repo\.github" -Force -Recurse -ErrorAction Ignore
+Remove-Item "$tempDirectory\$repo\PartsUnlimited" -Recurse -Force -ErrorAction Ignore
 
 # TODO: Clone files from source repo -> Copy to destination -> Commit to target repo
 Copy-Item -Recurse -Path "$partsUnlimitedDirectory" -Destination "$tempDirectory\$repo" -Force 
@@ -31,5 +31,5 @@ git commit -m "Init commit"
 git push
 Pop-Location
 
-Remove-Item "$tempDirectory\$repo\.github" -Recurse -Force
-Remove-Item $tempDirectory\$repo -Recurse -Force
+Remove-Item "$tempDirectory\$repo\.github" -Recurse -Force -ErrorAction Ignore
+Remove-Item $tempDirectory\$repo -Recurse -Force -ErrorAction Ignore
