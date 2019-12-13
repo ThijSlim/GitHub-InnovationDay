@@ -1,9 +1,12 @@
 Import-module .\Authentication.ps1 -Force
 
 $owner = "thijslimmen"
-$repo = "Test"
+$repo = "test"
 $createRepoGithubUri = "https://api.github.com/repos/$owner/$repo";
+
 $tempDirectory = $PSScriptRoot + "/bin/temp"
+$partsUnlimitedDirectory = $PSScriptRoot + "/PartsUnlimited"
+$githubActionsDirectory = $PSScriptRoot + "/GithubActions"
 
 $header = GetBasicAuthenticationHeader
 
@@ -19,8 +22,8 @@ Remove-Item "$tempDirectory\$repo\.github" -Force -Recurse
 Remove-Item "$tempDirectory\$repo\PartsUnlimited" -Recurse -Force
 
 # TODO: Clone files from source repo -> Copy to destination -> Commit to target repo
-Copy-Item -Recurse -Path "$tempDirectory\PartsUnlimited" -Destination "$tempDirectory\$repo" -Force 
-Copy-Item -Recurse -Path "$tempDirectory\GithubActions" -Destination "$tempDirectory\$repo\.github\workflows" -Force 
+Copy-Item -Recurse -Path "$partsUnlimitedDirectory" -Destination "$tempDirectory\$repo" -Force 
+Copy-Item -Recurse -Path "$githubActionsDirectory" -Destination "$tempDirectory\$repo\.github\workflows" -Force 
 
 Push-Location "$tempDirectory\$repo"
 git add .
