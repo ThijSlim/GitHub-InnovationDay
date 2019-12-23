@@ -1,14 +1,14 @@
-Import-module .\Authentication.ps1 -Force
-
-$owner = "thijslimmen"
-$repo = "test"
+param (
+    [string] $owner,
+    [string] $repo
+)
 
 $addIssueGithubUri = "https://api.github.com/repos/$owner/$repo/issues";
 
 $body = @{
     title = "Doesn't work on my machine"
     body = "Fix it!"
-    assignee = "thijslimmen"
+    assignee = $owner
 }
 
 $header = GetBasicAuthenticationHeader

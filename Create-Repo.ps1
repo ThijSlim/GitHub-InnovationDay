@@ -1,9 +1,11 @@
-Import-module .\Authentication.ps1 -Force
+param (
+    [string] $repoName
+)
 
 $createRepoGithubUri = "https://api.github.com/user/repos";
 
 $body = @{
-    name = "Gdbc2020-InnovationDay"
+    name = $repoName
     private = $true
 }
 

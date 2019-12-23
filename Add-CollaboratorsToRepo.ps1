@@ -1,8 +1,8 @@
-Import-module .\Authentication.ps1 -Force
-
-$username = "thijslimmen"
-$repository = "Gdbc2020-InnovationDay"
-$collaborator = "NielsNijveldt"
+param (
+    [string] $username,
+    [string] $repository,
+    [string] $collaborator
+)
 
 $addCollaboratorGithubUri = "https://api.github.com/repos/$username/$repository/collaborators/$collaborator";
 

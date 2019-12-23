@@ -1,7 +1,8 @@
-Import-module .\Authentication.ps1 -Force
+param (
+    [string] $owner,
+    [string] $repo
+)
 
-$owner = "thijslimmen"
-$repo = "test"
 $createRepoGithubUri = "https://api.github.com/repos/$owner/$repo";
 
 $tempDirectory = $PSScriptRoot + "/bin/temp"

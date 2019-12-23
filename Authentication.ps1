@@ -1,4 +1,4 @@
-$personalAccessToken = "793ee08f331a429749a755b780613d12a04c258e";
+$personalAccessToken = "<Enter GitHub API Token>";
 
 function GetBasicAuthenticationHeader(){
     $credPair = "username:$personalAccessToken"
