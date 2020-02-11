@@ -33,3 +33,7 @@ jobs:
       with: 
         app-name: {{ApplicationNamePlaceHolder}} # Replace with your app name
         package: ${{env.DOTNET_ROOT}}/PartsUnlimited 
+
+    - name: Azure Logout
+      run: |
+        az logout
