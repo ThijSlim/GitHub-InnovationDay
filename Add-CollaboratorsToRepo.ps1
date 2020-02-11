@@ -1,17 +1,17 @@
 param (
-    [string] $username,
-    [string] $repository,
-    [string] $collaborator
+    [string] $Username,
+    [string] $RepositoryName,
+    [string] $Collaborator
 )
 
-$addCollaboratorGithubUri = "https://api.github.com/repos/$username/$repository/collaborators/$collaborator";
+$AddCollaboratorGithubUri = "https://api.github.com/repos/$Username/$RepositoryName/collaborators/$Collaborator";
 
-$body = @{
+$Body = @{
     permission = "admin"
 }
 
-$header = GetBasicAuthenticationHeader
+$Header = GetBasicAuthenticationHeader
 
-$response = Invoke-RestMethod -Uri $addCollaboratorGithubUri -Headers @{Authorization = $header} -ContentType "application/json" -Method Put -Body (ConvertTo-Json $body)
+$Response = Invoke-RestMethod -Uri $AddCollaboratorGithubUri -Headers @{Authorization = $Header} -ContentType "application/json" -Method Put -Body (ConvertTo-Json $Body)
 
-Write-Output $response
+Write-Output $Response

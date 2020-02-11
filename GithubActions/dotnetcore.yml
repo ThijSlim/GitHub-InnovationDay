@@ -20,11 +20,16 @@ jobs:
 
     - name: dotnet publish
       run: |
-        dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/PartsUnlimited 
+        dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/PartsUnlimited
+      working-directory: PartsUnlimited
+    
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: 'Run Azure webapp deploy action using publish profile credentials'
+    - name: 'Run Azure webapp deploy action using publish profile credentials.'
       uses: azure/webapps-deploy@v1
       with: 
-        app-name: PartsUnlimited # Replace with your app name
-        publish-profile: ${{ secrets.azureWebAppPublishProfile }} # Define secret variable in repository settings as per action documentation
+        app-name: {{ApplicationNamePlaceHolder}} # Replace with your app name
         package: ${{env.DOTNET_ROOT}}/PartsUnlimited 

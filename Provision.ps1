@@ -1,12 +1,17 @@
+param (
+    [string] $RepositoryName,
+    [string] $GitHubUserName,
+    [string] $AzureUserName,
+    [securestring] $AzurePassword,
+    [string] $AzureResourceGroup,
+    [string] $AzureApplicationName
+)
+
 Import-module .\Authentication.ps1 -Force
 
-$repo = "<RepoName>"
-$userName = "<UserName Owner>"
-
-# TODO Create Azure Web APP
-# TODO Get Azure Publish package
-.\Create-Repo.ps1 -RepoName $repo
-# TODO Add Azure Publish package as secret
-.\Add-CollaboratorsToRepo.ps1 -Username $userName -Repository $repo -Collaborator "<Collaborator Name>"
-.\Add-CodeToRepo.ps1 -Owner $userName -Repo $repo
-.\Add-Issue.ps1 -Owner $userName -Repo $repo
+.\Create-Repo.ps1 -RepsitoryName $RepositoryName
+.\Create-AzureResources.ps1 -AzureUserName $AzureUserName -AzurePassword $AzurePassword -AzureResourceGroup $AzureResourceGroup -AzureApplicationName $AzureApplicationName -GitHubUserName $GitHubUserName -GitHubRepository $RepositoryName
+#.\Add-CollaboratorsToRepo.ps1 -Username $GitHubUserName -RepositoryName $RepositoryName -Collaborator "<Collaborator Name>"
+.\Add-ApplicationNameToYml.ps1 -ApplicationName $AzureApplicationName
+.\Add-CodeToRepo.ps1 -Owner $GitHubUserName -RepositoryName $RepositoryName
+.\Add-Issue.ps1 -Owner $GitHubUserName -RepsitoryName $RepositoryName

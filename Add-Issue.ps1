@@ -1,18 +1,18 @@
 param (
-    [string] $owner,
-    [string] $repo
+    [string] $Owner,
+    [string] $RepsitoryName
 )
 
-$addIssueGithubUri = "https://api.github.com/repos/$owner/$repo/issues";
+$AddIssueGithubUri = "https://api.github.com/repos/$Owner/$RepsitoryName/issues";
 
-$body = @{
+$Body = @{
     title = "Doesn't work on my machine"
     body = "Fix it!"
-    assignee = $owner
+    assignee = $Owner
 }
 
-$header = GetBasicAuthenticationHeader
+$Header = GetBasicAuthenticationHeader
 
-$response = Invoke-RestMethod -Uri $addIssueGithubUri -Headers @{Authorization = $header} -ContentType "application/json" -Method Post -Body (ConvertTo-Json $body)
+$Response = Invoke-RestMethod -Uri $AddIssueGithubUri -Headers @{Authorization = $Header} -ContentType "application/json" -Method Post -Body (ConvertTo-Json $Body)
 
-Write-Output $response
+Write-Output $Response

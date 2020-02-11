@@ -1,16 +1,16 @@
 param (
-    [string] $repoName
+    [string] $RepsitoryName
 )
 
-$createRepoGithubUri = "https://api.github.com/user/repos";
+$CreateRepoGithubUri = "https://api.github.com/user/repos";
 
-$body = @{
-    name = $repoName
+$Body = @{
+    name = $RepsitoryName
     private = $true
 }
 
-$header = GetBasicAuthenticationHeader
+$Header = GetBasicAuthenticationHeader
 
-$response = Invoke-RestMethod -Uri $createRepoGithubUri -Headers @{Authorization = $header} -ContentType "application/json" -Method Post -Body (ConvertTo-Json $body)
+$Response = Invoke-RestMethod -Uri $CreateRepoGithubUri -Headers @{Authorization = $Header} -ContentType "application/json" -Method Post -Body (ConvertTo-Json $Body)
 
-Write-Output $response
+Write-Output $Response
